@@ -1,0 +1,11 @@
+@import "variables";
+
+.btn-register
+{
+    border: $border;
+    box-shadow: $shadow;
+    padding: $padding;
+    width: 100px;
+    font-size: 20px;
+    background-color: yellow;
+}

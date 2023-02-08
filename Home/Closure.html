@@ -1,0 +1,12 @@
+<script>
+    function Outer(){
+        var x = 10;
+        function Inner(){
+            var y = 20;
+            var z = x+y;
+            return z;
+        }
+        return Inner();
+    }
+    document.write("Addition=" + Outer());
+</script>

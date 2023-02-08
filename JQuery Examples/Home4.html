@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#btnRegister").click(()=>{
+                $("#lblName").text($("#Name").val());
+                $("#lblPrice").text($("#Price").val());
+                $("#lblCity").text($("#City").val());
+                $("#lblStock").html(($("#Stock").prop("checked")==true)?"Available":"Out of Stock");
+            })
+        })
+    </script>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: 4fr 8fr;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <nav>
+        <dl>
+            <dt>Name</dt>
+            <dd><input type="text" id="Name"></dd>
+            <dt>Price</dt>
+            <dd><input type="number" id="Price"></dd>
+            <dt>Stock</dt>
+            <dd><input type="checkbox" id="stock">Available</dd>
+            <dt>Shipped To</dt>
+            <dd>
+                <select id="City">
+                    <option>Delhi</option>
+                    <option>Hyd</option>
+                </select>
+            </dd>
+        </dl>
+        <button id="btnRegister">Register</button>
+      </nav>
+      <main>
+        <table>
+            <tr>
+                <td width="100">Name</td>
+                <td id="lblName"></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td id="lblPrice"></td>
+            </tr>
+            <tr>
+                <td>Stock</td>
+                <td id="lblStock"></td>
+            </tr>
+            <tr>
+                <td>Shipped To</td>
+                <td id="lblCity"></td>
+            </tr>
+        </table>
+      </main>
+    </div>
+</body>
+</html>

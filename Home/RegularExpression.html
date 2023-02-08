@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var mobile = prompt("Enter Mobile","UK Mobile Format");
+        var regEx = /\+\(44\)\([0-9]{2}\)\s[0-9]{4}\s[0-9]{4}/;
+        if(mobile.match(regEx)){
+            document.write("OTP Sent to your mobile");
+        }else{
+            document.write("Invailid Mobile - UK formate +(44)(20) 12334 5678");
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

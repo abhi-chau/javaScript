@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ean13/dist/ean13.min.js"></script>
+    <script src="../node_modules/jquery-ean13/dist/jquery-ean13.js"></script>
+    <script>
+       $(function(){
+        $("#asp").EAN13("9876543219876");
+       })
+    </script>
+</head>
+<body>
+    <div>
+        <img src="../public/images/Wing.webp" width="200" height="200">
+        <div>
+            <canvas id="asp">canvas is not supported.</canvas>
+        </div>
+    </div>
+</body>
+</html>

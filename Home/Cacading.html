@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var Category = ["Select a Category","Electronics","Footwear"];
+        var Electronics = ["Select Electronics","Televisions","Mobiles","Watches"];
+        var Footwear = ["Select Footwear","Sneakers","Casuals","Boots"];
+        var Product = [];
+
+        function LoadCategories(){
+            for(var item of categories)
+            {
+               var option = document.createElement("option");
+               option.text = item;
+               option.value = item;
+               document.getElementById("lstCategories").appendChild(option); 
+            }
+        }
+        function LoadProducts(){
+            document.getElementById("lstProducts").innerHTML = "";
+            for(var item of Products)
+            {
+                var option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+                document.getElementById("lstProducts").appendChild("option");
+            }
+        }
+        function bodyload(){
+            LoadCategories();
+        }
+        function CategoryChanged(){
+            var categoryName = document.getElementById("lstCategories").value;
+            switch(categoryName)
+            {
+                case "Electronics":
+                Product = electronics;
+                LoadProducts();
+                break;
+                case "Footwear":
+                Products = Footwear;
+                LoadProducts();
+                break;
+                Products = ["Please select a Category"];
+                LoadProducts();
+                break;    
+            }
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <dl>
+        <dt>Select Category</dt>
+        <dd><select onchange="CategoryChanged()" id="lstCategories"></select></dd>
+        <dt>Select Product</dt>
+        <dd><select id="lstProducts"></select></dd>
+    </dl>
+</body>
+</html>

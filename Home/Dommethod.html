@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var Categories = ["Electronics","Footwear","Fashion","Men's clothing"];
+        function bodyload(){
+            for(var category of Categories)
+            {
+                var li = document.createElement("li");
+                li.innerHTML = category;
+                document.querySelector("ol").appendChild(li);
+
+                var option = document.createElement("option");
+                option.innerHTML = category;
+                document.querySelector("select").appendChild(option);
+
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.innerHTML = category;
+                tr.appendChild(td);
+                document.querySelector("tbody").appendChild(tr);
+
+                var ulLi = document.createElement("li");
+                ulLi.innerHTML = `<button style = "width:200px;margin-bottom:10px">${category}</button>`;
+                document.querySelector("ul").appendChild(ulLi);
+
+            }
+        }
+    </script>
+    <style>
+        body{
+            display: flex;
+        }
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body onload="bodyload()">
+    <div>
+        <h2>Categories</h2>
+        <ol>
+
+        </ol>
+    </div>
+    <div>
+        <h2>Select Category</h2>
+        <select></select>
+    </div>
+    <div>
+        <h2>Table</h2>
+        <table border="1">
+          <thead>
+            <tr>
+                <th>Categories</th>
+            </tr>
+          </thead>
+          <tbody>
+
+        </tbody>
+        </table>
+    </div>
+    <div>
+        <h2>Select Category</h2>
+        <ul>
+
+        </ul>
+    </div>
+</body>
+</html>

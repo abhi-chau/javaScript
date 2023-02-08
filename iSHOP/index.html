@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>i-Shop</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+       function LoadProducts(){
+          $.ajax({
+            method:"get",
+            url:"http://localhost:5000/products",
+            success:(data)=>{
+             $.each(data,(key,item)=>{
+                $(`<tr>
+                    <td>${item.Name}</td>
+                    <td>${item.Price}</td>
+                    <td>
+                        <button class="btn btn-outline-warning">
+                        <span class="bi bi-eye-fill"></span>    
+                        </button>
+                        <button class="btn btn-outline-success">
+                        <span class="bi bi-pen"></span>    
+                        </button>
+                        <button name=${item.ProductId} id="btnDelete" class="btn btn-outline-danger">
+                         <span class="bi bi-trash"></span>
+                        </button>
+                    </td>
+                 </tr>`).appendTo("tbody");
+             })
+            }
+          })
+       }
+       $(function(){
+        LoadProducts();
+        $("#btnNew").click(()=>{
+            location.href="register.html";
+        })
+        $(document).on("click","#btnDelete",(e)=>{
+            var id = e.currentTarget.name;
+            var flag = confirm("Are you sure want to delete?");
+            if(flag==true){
+                $.ajax({
+                    method:"delete",
+                    url:`http://localhost:5000/delete/${id}`
+                })
+                alert("Record Delete");
+                LoadProducts();
+            }
+        })
+       })
+    </script>
+</head>
+<body class="container-fluid">
+    <h2>Products CRUD Operations</h2>
+    <div class="mb-4">
+      <button id="btnNew" class="btn btn-primary">New Product</button>
+    </div>
+    <div class="product-container">
+     <table class="table table-hover">
+       <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+     </table>
+    </div>
+</body>
+</html>

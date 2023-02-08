@@ -1,0 +1,10 @@
+@import "mixins.scss";
+@import "buttons.scss";
+
+@include SetAlignment();
+@include SetShadow();
+
+div{
+    width: 100px;
+    height: 100px;
+}

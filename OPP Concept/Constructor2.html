@@ -1,0 +1,34 @@
+<script>
+    class Database
+    {
+        constructor(dbName){
+            document.write(`Connected to ${dbName}..<br>`);
+        }
+        Insert(){
+            document.write("Record Inserted<br>");
+        }
+        Delete(){
+            document.write("Record Deleted<br>");
+        }
+    }
+    function InsertClick(){
+        let obj = new Database(document.getElementById("db").value);
+        obj.Insert();
+    }
+    function DeleteClick(){
+        let obj = new Database(document.getElementById("db").value);
+        obj.Delete();
+    }
+</script>
+<body>
+    <div>
+        <select id="db">
+            <option>Select Database</option>
+            <option>Oracle</option>
+            <option>MySql</option>
+            <option>MongoDB</option>
+        </select>
+    </div>
+    <button onclick="InsertClick()">Insert</button>
+    <button onclick="DeleteClick()">Delete</button>
+</body>

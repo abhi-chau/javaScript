@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#btnLoad").click(()=>{
+                $.ajax({
+                    method:"get",
+                    url:"./Home.html",
+                    success:(data)=>{
+                        $("#container").html(data);
+                    }
+                })
+            })
+        })
+        .ajaxStart(()=>{
+            alert("The request for Help Document Started..");
+        })
+        .ajaxSuccess(()=>{
+            alert("The Help document data is ready..");
+        })
+        .ajaxComplete(()=>{
+            alert("The request processed successfully..");
+        })
+        .ajaxStop(()=>{
+            alert("Request Completed");
+        })
+        .ajaxError((e,jqXHR)=>{
+            if(jqXHR.status==404){
+                alert("The file you requested Not Found");
+            }
+        })
+    </script>
+</head>
+<body>
+    <button id="btnLoad">Load Help</button>
+    <br><br>
+    <div id="container">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+$theme:yellow;
+
+@if($theme==red){
+    .container{
+        background-color: rgb(248, 119, 119);
+        border:2px solid red;
+        box-shadow: 2px 2px 3px red;
+        padding: 20px;
+        h1{
+            color:rgb(110, 96, 96);
+        }
+        p{
+            color:red;
+        }
+    }
+}
+@else if($theme==green){
+    .container{
+        background-color: rgb(187, 248, 202);
+        border:2px solid rgb(0,255,115);
+        box-shadow: 2px 2px 3px rgb(4, 163, 38);
+        padding: 20px;
+        h1{
+            color:rgb(2,109,38);
+        }
+        p{
+            color:rgb(40,146,11);
+        }
+    }
+}
+@else{
+    .container{
+        background-color: rgb(210,210,210);
+        border:2px solid rgb(35,34,34);
+        box-shadow: 2px 2px 3px rgb(15,15,15);
+        padding: 20px;
+        h1{
+            color:rgb(4,4,4);
+        }
+        p{
+            color:rgb(41,40,40);
+        }
+    }
+}

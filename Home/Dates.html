@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var product = {
+           Name: "TV",
+           Mfd : new Date("2022-12-22 20:40:23.89")
+        }
+        var weekdays = ["Sunday","Monday","Tue","Wed","Thu","Fri","Saturday"];
+        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sep", "October", "Nov", "December"];
+   
+        document.write(`
+           Name : ${product.Name} <br>
+           Date  : ${product.Mfd.getDate()} <br>
+           Day   : ${weekdays[product.Mfd.getDay()]} <br>
+           Month : ${months[product.Mfd.getMonth()]} <br>
+           Year  : ${product.Mfd.getFullYear()}
+        `);
+   </script>
+</head>
+<body>
+   
+</body>
+</html>

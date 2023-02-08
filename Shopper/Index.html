@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        header{
+            display:flex;
+            justify-content: space-between;
+            font-family: Arial;
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+        .brand-title{
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav span{
+            margin-right: 20px;
+            font-size: 20px;
+        }
+        .nav-icons span{
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        section{
+            margin-top: 50px;
+        }
+        a{
+          text-decoration: none;
+          color: white;
+          cursor: grab;  
+        }
+    </style>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script>
+        function LoadPage(url){
+            $.ajax({
+                method:"get",
+                url:url,
+                success:(data)=>{
+                    $("main").html(data);
+                }
+            })
+        }
+        function LoadProducts(category){
+            $.ajax({
+                method:"get",
+                url:`http://fakestoreapi.com/products/category/${category}`,
+                success:(data)=>{
+                    $.each(data,(key, product)=>{
+                      $(`<img src="${product.image}" width=100> height=100`).appendTo(".catalog");  
+                    })
+                }
+            })
+        }
+
+        $(function(){
+            LoadPage("home.html");
+
+            $(".nav-item").click((event)=>{
+                switch(event.target.id){
+                    case "mens.html":
+                        if($.cookies("username")==undefined){
+                            LoadPage("login.html");
+                        }else{
+                           LoadPage(event.target.id); 
+                           LoadProducts("men's clothing");
+                        }
+                        break;
+                        case "home.html":
+                            LoadPage(event.target.id);
+                        break;
+                        case "women.html":
+                            if($.cookies("username")==undefined){
+                                LoadPage("login.html");
+                            }else{
+                                LoadPage(event.target.id);
+                                LoadProducts("women's clothing");
+                            }
+                            break;
+                            case "jewelery.html":
+                                if($.cookies("username")==undefined){
+                                    LoadPage("login.html");
+                                }else{
+                                    LoadPage(event.target.id);
+                                    LoadProducts("jewelery");
+                                }
+                            break;
+                            case "login.html":
+                                LoadPage(event.target.id);
+                                break;      
+                }
+            })
+            $(document).on("click","#btnlogin",()=>{
+                $.cookies("username" , $("username").val());
+                $("#lblUser").html($.cookies("username"));
+                $("#lbllog").html("logout");
+                LoadPage("mens.html");
+                LoadProducts("men's clothing");
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <header>
+        <div class="brand-title">
+            Shopper.
+        </div>
+        <div class="nav">
+          <span><a class="nav-item" id="home.html">Home</a></span>
+          <span><a class="nav-item" id="mens.html">Men's Fashion</a></span>
+          <span><a class="nav-item" id="jewelery.html">jewelery</a></span>
+          <span><a class="nav-item" id="women.html">Women's Fashion</a></span>
+          <span><a class="nav-item" id="login.html"><span id="lblLog">Login</span></a></span>
+        </div>
+        <div class="nav-icons">
+            <span class="bi bi-search"></span>
+            <span class="bi bi-heart"></span>
+            <span class="bi bi-person-fill"></span>
+            <span id="lblUser"></span>
+        </div>
+    </header>
+    <section>
+        <main>
+
+        </main>
+    </section>
+</body>
+</html>

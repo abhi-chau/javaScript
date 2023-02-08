@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+          $("#btnLoad").click(()=>{
+            $.ajax({
+                method:"get",
+                url:"./Home.html",
+                success:(data)=>{
+                    $("#container").html(data);
+                }
+            })
+          })
+          $("#btnFilter").click(()=>{
+            $.ajax({
+              method:"get",
+              url:"filter.html",
+              success:(data)=>{
+                $("#container").html(data);
+              }
+            })
+          })
+          $("#btnData").click(()=>{
+            $.ajax({
+                method:"get",
+                url:"../data/products.json",
+                success:(data)=>{
+                    $.each(data,(key,item)=>{
+                        $(`<tr>
+                            <td>${item.Name}</td>
+                            <td>${item.Price}</td>
+                            <td>${item.Stock}</td>
+                            </tr>`).appendTo("tbody");
+                    })
+                }
+            })
+          })
+        })
+    </script>
+</head>
+<body>
+    <button id="btnLoad">Load Help</button>
+    <button id="btnFilter">Load Filter</button>
+    <button id="btnData">Load Products</button>
+    <br><br>
+    <div id="container">
+
+    </div>
+    <table border="1" width="500">
+     <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+     </thead>
+     <tbody>
+
+     </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid.css">
+    <link rel="stylesheet" href="../node_modules/jsgrid/dist/jsgrid-theme.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jsgrid/dist/jsgrid.js"></script>
+    <script>
+      $(function(){
+        $("#grid").jsGrid({
+            width:"100%",
+            height:"400px",
+
+            filtering:true,
+            editing:true,
+            sorting:true,
+            paging:true,
+
+            data:[
+                {Name:"TV",Price:56000.44,Stock:true},
+                {Name:"Nike",Price:2400.44,Stock:false}
+            ],
+
+            fields:[
+                {name:"Name",type:"text"},
+                {name:"Price",type:"number"},
+                {name:"Stock",type:"checkbox",title:"IN Stock",sorting:true},
+                {type:"control"}
+            ]
+        })
+      })
+    </script>
+</head>
+<body>
+    <div id="grid">
+      
+    </div>
+</body>
+</html>

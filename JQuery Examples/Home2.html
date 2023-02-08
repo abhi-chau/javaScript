@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+      $(function(){
+        fetch("../data/products.json")
+        .then(response=>response.json())
+        .then(data=>{
+            $.each(data,(key,product)=>{
+                $(`<tr>
+                    <td>${product.Name}</td>
+                    <td>${product.Price}</td>
+                    <td>${product.Stock}</td>
+                    </tr>`).appendTo("tbody");
+            })
+        })
+      })
+    </script>
+</head>
+<body>
+    <table border="1" width="400">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+            </tr>
+            <tbody>
+
+            </tbody>
+        </thead>
+    </table>
+</body>
+</html>

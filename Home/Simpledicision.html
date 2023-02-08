@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var userDetails = {
+         Card : "44445555666677778910",
+         Cvv : "345",
+         Expiry: "2024"
+     }
+     function VerifyCard(){
+        var card = document.getElementById("txtCard").value;
+        if(card==userDetails.Card) {
+           document.getElementById("txtCvv").disabled = false;
+           document.getElementById("txtCvv").focus();
+        }else{
+            document.getElementById("btnPay").disabled = true;
+        }
+     }
+     function VerifyCvv(){
+       var cvv = document.getElementById("txtCvv").value;
+       if(cvv == userDetails.Cvv) {
+          document.getElementById("lstYear").disabled = false;
+          document.getElementById("lstYear").focus();
+       }else{
+           document.getElementById("btnPay").disabled = true;
+       }
+     }
+     function VerifyYear(){
+       var year = document.getElementById("lstYear").value;
+       if(year==userDetails.Expiry) {
+         document.getElementById("btnPay").disabled = false;
+       }else{
+          document.getElementById("btnPay").disabled = true;
+       }
+     }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Payment Details</legend>
+        <dl>
+          <dt>Card Number</dt>
+          <dd><input type="text" onkeyup="VerifyCard()" id="txtCard"></dd>
+          <dt>CVV</dt>
+          <dd><input type="text" onkeyup="VerifyCvv()" id="txtCvv" size="3" disabled></dd>
+          <dt>Expiry</dt>
+          <dd>
+            <select id="lstYear" onchange="VerifyYear()" disabled>
+              <option>2022</option>
+              <option>2023</option>
+              <option>2024</option>
+            </select>
+          </dd>
+        </dl>
+        <button id="btnPay" disabled>Pay</button>
+      </fieldset>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        dt{
+            font-weight: bold;
+        }
+    </style>
+    <script>
+       function StockChange(){
+        var optStock = document.getElementById("optStock");
+        var lblMsg = document.getElementById("lblMsg");
+        lblMsg.innerHTML = (optStock.checked)?"Available":"Out of Stock";
+       }
+       function ToggleClick(){
+        var btnToggle = document.getElementById("btnToggle");
+        btnToggle.innerHTML = (btnToggle.innerHTML==="Show")?"Hide":"Show";
+        var pic = document.getElementById("pic");
+        pic.style.display = (pic.style.display==="none")?"block":"none";
+        var icon = document.getElementById("icon");
+        icon.className = (icon.className==="bi bi-eye-fill")?"bi bi-eye-slash":"bi bi-eye-fill";
+       }
+    </script>
+</head>
+<body class="container-fluid">
+    <dl>
+        <dt>Stock</dt>
+        <dd>
+            <input id="optStock" checked onchange="StockChange()" type="checkbox"><label id="lblMsg">Available</label>
+        </dd>
+        <dt class="input-group"><span class="input-group-text"><span id="icon" class="bi bi-eye-fill"></span></span>
+        <button class="btn btn-dark" onclick="ToggleClick()" id="btnToggle" >Show</button></dt>
+        <dd id="pic" style="display: none;">
+            <img src="/Home/images/Good morning.jpg" width="200" height="200">
+        </dd>
+    </dl>
+</body>
+</html>

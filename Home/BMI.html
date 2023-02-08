@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+      .box{
+         border: 2px solid indigo;
+         color: indigo;
+         text-align: center;
+         padding: 5px;
+         font-weight: bold;
+         margin-left: 160px;  
+
+      }
+      p{
+         font-size: 20px;
+         font-weight: bold;
+         color: indigo;
+      }
+      .calculate{
+         width: 420px;
+         margin-top: 30px;
+      }
+      body{  
+         background-image: linear-gradient(rgb(226, 105, 105), rgb(207, 207, 67), rgb(65, 65, 238));
+         background-repeat: no-repeat;
+         background-size: cover;
+         height: 100vh;
+      }
+      .content{
+         background-color: rgba(255, 255, 255, 0.5);
+         border: 6px solid indigo;
+         border-radius: 15px;
+      }
+      #btnColor{
+         background-color: rgb(129, 42, 192);
+         color: white;
+         font-size: 22px;
+      }
+      #btnColor:active {
+         transform: scale(110%);
+         transition: 0.5 ease-in-out;
+      }
+      .right{
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+      h3{
+         color: indigo;
+      }
+    </style>
+    <script>
+      
+      
+      
+      function HeightFeetChange(){
+         var heightFeet = document.getElementById("rangeHeightFeet").value;
+         document.getElementById("lblHeightFeet").innerHTML= heightFeet;
+         CalculateClick();
+      }
+      function HeightInchesChange(){
+        var heightInches = document.getElementById("rangeHeightInches").value;
+         document.getElementById("lblHeightInches").innerHTML= heightInches;
+         CalculateClick();
+      }
+      function WeightChange(){
+        var weight = document.getElementById("rangeWeight").value;
+         // console.log(weight);
+         document.getElementById("lblWeight").innerHTML= weight;
+         CalculateClick();
+      }
+      function CalculateClick(){
+        let heightFeet = parseInt(document.getElementById("rangeHeightFeet").value);
+        let heightInches = parseInt(document.getElementById("rangeHeightInches").value);
+        let weight = parseInt(document.getElementById("rangeWeight").value);
+       let   hF = heightFeet + parseFloat(heightInches*0.8333334);
+       let hM = hF*0.3048;
+       var BMI = (weight)/(Math.pow(hM,2));
+         // console.log(BMI.toFixed(2));
+         document.getElementById("bmi").innerHTML = BMI.toFixed(2);
+      }
+    </script>
+</head>
+<body class="container-fluid">
+   <h1 class="text-center">BMI Calculator</h1>
+   <div class="content d-flex">
+      <div class="col-6 p-2">
+         <div class="row">
+            <p>Height (Feet)</p>
+            <div class="col-5">
+            <input onchange="HeightFeetChange()" type="range" class="form-range" id="rangeHeightFeet" min="0" max="10" value="5">
+            </div>
+            <div class="col-2 box" id="lblHeightFeet">5</div>
+         </div>
+         <div class="row">
+            <p>Height (Inches)</p>
+            <div class="col-5">
+            <input onchange="HeightInchesChange()" type="range" class="form-range" id="rangeHeightInches" min="0" max="11" value="2">
+            </div>
+            <div class="col-2 box" id="lblHeightInches">2</div>
+         </div>
+         <div class="row">
+            <p>Weight (Kg)</p>
+            <div class="col-5">
+            <input onchange="WeightChange()" type="range" class="form-range" id="rangeWeight" min="1" max="100" value="50">
+            </div>
+            <div class="col-2 box" id="lblWeight">50</div>
+         </div>
+         <div class="text-center p-lg-1 calculate"><button onclick="CalculateClick()" id="btnColor" class="btn  pe-4 ps-4">Calculate</button></div>
+      </div>
+      <div class="col-6 right">
+         <div><h3>BMI : <span id="bmi">bmi</span> Kg/M<sup>2</sup></h3></div>
+         
+      </div>
+   </div>
+</body>
+</html>

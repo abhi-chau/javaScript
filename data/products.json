@@ -1,0 +1,38 @@
+[
+    {
+        "Name":"Sumsung TV",
+        "Price":"45000.55",
+        "Stock":"true",
+        "category":"Electronics"
+    },
+    {
+        "Name":"Nike Casuals",
+        "Price":"5000.55",
+        "Stock":"false",
+        "category":"Footwear"
+    },
+    {
+        "Name":"Mobile",
+        "Price":"3500.33",
+        "Stock":"true",
+        "category":"Electronics"
+    },
+    {
+        "Name":"Jeans",
+        "Price":"3000.33",
+        "Stock":"true",
+        "category":"Men's Fashion"
+    },
+    {
+        "Name":"watch",
+        "Price":"4500.33",
+        "Stock":"true",
+        "category":"Electronics"
+    },
+    {
+        "Name":"jwelary",
+        "Price":"3500.33",
+        "Stock":"true",
+        "category":"Women's Fashion"
+    }
+]

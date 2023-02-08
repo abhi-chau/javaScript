@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+             $("#search").keyup(function(){
+                 var term = $(this).val().toLowerCase();
+                 $("tbody tr").filter(function(){
+                      $(this).toggle($(this).text().toLowerCase().indexOf(term)>-1)
+                 })
+             })
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="search" placeholder="Search By Name | Price">
+        <br><br>
+    </div>
+    <table border="1" width="400" id="tblProducts">
+     <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr>
+            <td>Samsung TV</td>
+            <td>56000.44</td>
+        </tr>
+        <tr>
+            <td>Nike Casuals</td>
+            <td>3500.44</td>
+        </tr>
+        <tr>
+            <td>Lee Cooper Casuals</td>
+            <td>4600.44</td>
+        </tr>
+     </tbody>
+    </table>
+</body>
+</html>

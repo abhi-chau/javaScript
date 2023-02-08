@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery.cookie/jquery.cookie.js"></script>
+    <script>
+      $(function(){
+        if($.cookies("usernsme")==undefined){
+            location.href="login.html";
+        }else{
+            $("p").html(`Hello ! ${$.cookies("username")}`);
+        }
+        $("button").click(()=>{
+            $.removeCookies("username");
+            loction.href="login.html";
+        })
+      })
+    </script>
+</head>
+<body>
+    <h2>About Us - <button>Signout</button></h2>
+    <p></p>
+    <a href="inbox.html">Inbox</a>
+</body>
+</html>

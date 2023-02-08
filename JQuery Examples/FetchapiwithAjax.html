@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+       function LoadCategories(){
+        $.ajax({
+            method:"get",
+            url: "https://fakestoreapi.com/products/categories",
+            success:(categories)=>{
+                categories.unshift("all");
+                $.each(categories,(key,category)=>{
+                    $(`<option value = "${category}">${category.toUpperCase()}</option>`).appendTo("#lstCategories");
+                })
+            }
+        })
+       }
+    </script>
+</head>
+<body class="container-fluid">
+    <header class="bg-dark p-1 text-center text-white mb-2">
+        <h1><span class="bi bi-cart"></span>Shopping Online</h1>
+    </header>
+    <section class="row mt-2">
+      <nav class="col-2">
+        <label class="form-label">Select Category</label>
+        <div>
+            <select id="lstCategories" class="form-select">
+
+            </select>
+        </div>
+      </nav>
+      <main class="col-10 d-flex flex-wrap overflow-auto" style="height:500px;">
+
+      </main>
+    </section>
+</body>
+</html>

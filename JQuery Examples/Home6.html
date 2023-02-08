@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            fetch("http://fakestoreapi.com/products&quot")
+             .then(response=>response.json())
+             .then(data=>{
+                $.each(data,(key,item)=>{
+                    $(`
+                    <div class="card m-2 p-2" style="witdh:200px">
+                        <img src=${item.image} class="card-img-top" height="150">
+                        <div class="card-header" style="height:150px">
+                            <p>${item.title}</p>
+                         </div>
+                         <div class="card-footer">
+                           <button id="btnAdd" class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    `).appendTo("#catalog");
+                })
+             })
+             $(document).on("click","#btnAdd",()=>{
+                alert("Add Clicked");
+             })
+        })
+    </script>
+</head>
+<body class="container-fluid">
+    <h2>Catalog</h2>
+    <div class="d-flex flex-wrap" id="catalog">
+        
+    </div>
+</body>
+</html>

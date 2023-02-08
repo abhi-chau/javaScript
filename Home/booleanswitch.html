@@ -1,0 +1,19 @@
+<script>
+    function f1(){
+        var x = prompt("Enter Number");
+        switch(true)
+        {
+            case x>=1 && x<=10:
+             if(x==4){
+                document.write("4 is reserved please use any another number");
+             }else{
+                document.write(`Your Number ${x} is between 1 to 10`);
+             }    
+            break;
+            case x>=11 && x<=20:
+            document.write(`Your Number ${x} is between 11 to 20`);
+            break;        
+        }
+    }
+    f1();
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function SetPosition(e){
+           var flag = document.getElementById("flag");
+           flag.style.position = "fixed";
+           flag.style.left = e.clientX + "px";
+           flag.style.top = e.clientY + "px";
+        }
+     </script>
+</head>
+<body onmousemove="SetPosition(event)">
+    <div style="height: 100px;">
+        Move the mouse pointer to test
+    </div>
+    <img src="../public/images/Wing.webp" width="100" height="100">
+</body>
+</html>

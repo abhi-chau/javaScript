@@ -1,0 +1,22 @@
+@import "variables.scss";
+
+@mixin SetShadow()
+{
+    img{
+        border:$border;
+        box-shadow: $shadow;
+    }
+    div{
+        padding: $padding;
+    }
+}
+
+@mixin SetAlignment()
+{
+    @for $i from 1 through 5
+    {
+        .box-#{$i}{
+            margin-left: $i*100px;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter</title>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        function LoadTable(){
+            fetch("../data/products.json")
+            .then(response=>response.json())
+            .then(data=>{
+                $.each(data,(key,item)=>{
+                    $(`<tr>
+                       <td>${item.Name}</td>
+                       <td>${item.Price}</td>
+                       <td>${item.Stock}</td>
+
+                     </tr>`).appendTo("tbody");
+                })
+            })
+        }
+        $(function(){
+            LoadTable();
+
+        $("#search").keyup(()=>{
+         var term = $("#search").val().toLowerCase();
+         $("tbody tr").filter(function(){
+            $(this).toggle($(this).text().toLowerCase().indexOf(term)>-1)
+         })
+        })    
+    })
+    </script>
+</head>
+<body>
+    <input type="text" id="search" placeholder="Search Products">
+    <br><br>
+    <table border="1" width="400">
+      <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+</body>
+</html>

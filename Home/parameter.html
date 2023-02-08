@@ -1,0 +1,118 @@
+<!-- <script>
+    function PrintNumbers(howMany){
+        for(var i=1; i<=howMany; i++)
+        {
+            document.write(i +"<br>");
+        }
+    }
+    PrintNumbers(15);
+</script> -->
+
+<!-- <script>
+    function Details(id,name,stock,cities,rating){
+        document.write(`
+          Id : ${id}<br>
+          Name : ${name}<br>
+          Stock : ${stock}<br>
+          Cities : ${cities.toString()}<br>
+          Rating:${rating.rate}[${rating.count}]
+        `);
+    }
+    Details(1,"TV",true,["Delhi","Hyd"],{rate:3.5,count:56000});
+</script> -->
+
+<!-- <script>
+    function VerifyPassword(password,success,failure)
+    {
+        if(password=="admin"){
+            success();
+        }else{
+            failure();
+        }
+    }
+    VerifyPassword(prompt("Enter Password"),function(){document.write("Login Success")},function(){document.write("Invalid Password")});
+</script> -->
+
+<!-- <script>
+    function Details(Name,Price)
+    {
+       if(Name==undefined){
+        document.write(`Price=${Price}`);
+       }else if(Price==undefined){
+         document.write(`Name=${Name}`);
+       }else{
+         document.write(`Name=${Name}<br>Price=${price}`);
+       }
+    }
+    Details(undefined,34000.44);
+</script> -->
+
+<!-- <script>
+    function Details(...Product)
+    {
+        var [name,price,stock]=Product;
+        document.write(`Name=${name}<br>Price=${price}<br>Stock=${stock}`);
+    }
+    Details("Samsung TV",45000.44,true);
+</script> -->
+
+<!-- <script>
+    function Details(title,...Product)
+    {
+        var [name,price,stock]=Product;
+        document.write(title);
+        document.write(`Name=${name}<br>Price=${price}<br>Stock=${stock}`);
+    }
+    Details("<h3>Product Details</h3>", "Samsung TV", 45000.44, true);
+</script> -->
+
+<!-- <script>
+    (function(){
+       document.write("Welcome to javaScript");
+    })();
+</script> -->
+
+<!-- <script>
+    var choice = prompt("Enter Chaoice","Welcome|Hello");
+
+    var fn;
+    if(choice=="Hello"){
+        fn = function(){
+            document.write("Hello ! World");
+        }
+    }else{
+        fn = function(){
+            document.write("Welcome to javaScript");
+        }
+    }
+    fn();
+</script> -->
+
+ <!-- <script>
+    function Addition(a,b){
+        return a+b;
+    }
+    document.write("Addition" + Addition(30,50));
+ </script> -->
+
+ <!-- <script>
+    function f1(val){
+        if(isNaN(val)){
+            return `Hello ! ${val}`;
+        }else{
+            return ++val;
+        }
+    }
+    document.write(f1(30));
+ </script> -->
+
+ <!-- <script>
+    function f1(){
+        document.write("Statement-1<br>");
+        document.write("Statement-2<br>");
+        return;
+        document.write("Statement-3<br>");
+    }
+    f1();
+ </script> -->
+ 
